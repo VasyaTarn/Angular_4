@@ -1,0 +1,32 @@
+<body>
+    <div id="app">
+        @for (pet of pets; track $index)
+        {
+            <div class="animal">
+                <img class="pet-photo" [src]=pet.img>
+                <h2 class="pet-name"> {{pet.name}} <span class="species">({{pet.species}})</span></h2>
+                <p><strong>
+                    Age:
+                    @if(pet.age == 0)
+                    {
+                        less than a year
+                    }
+                    @else 
+                    {
+                        {{pet.age}}
+                    }
+                </strong></p>
+                @if(pet.foods.length != 0)
+                {
+                    <h4>Favorite Foods</h4>
+                    <ul class="foods-list">
+                        @for (food of pet.foods; track $index)
+                        {
+                            <li>{{food}}</li>
+                        }
+                    </ul>
+                }
+              </div>
+        }
+    </div>
+</body>
